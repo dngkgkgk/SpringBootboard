@@ -1,9 +1,8 @@
 package com.cos.board.service;
 
-import java.text.SimpleDateFormat;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,8 +23,8 @@ public class BoardService {
 	}
 	
 	@Transactional(readOnly = true)
-	public List<Board> 글목록보기() {
-		return boardRepository.findAll();
+	public Page<Board> 글목록보기(Pageable pageable) {
+		return boardRepository.findAll(pageable);
 	}
 	
 	@Transactional

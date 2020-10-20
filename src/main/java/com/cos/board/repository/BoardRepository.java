@@ -17,4 +17,6 @@ public interface BoardRepository extends JpaRepository<Board, Integer>{
 	@Modifying // 수정, 삭제, 저장 할 때 붙인다. 이게있어야 commit이 된다.
 	@Query(value ="DELETE FROM board WHERE id = :id", nativeQuery = true)
 	int mDeleteById(int id);
+	
+	
 }

@@ -1,18 +1,15 @@
 package com.cos.board.model;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,6 +30,7 @@ public class Board {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // 해당 데이터베이스 번호증가 전략을 따라가기 오라클이면 시퀀스 mysql 이면 auto increment
 	private int id;
 	private String title;
+	@Column(length = 100000000)
 	private String content;
 	private int readCount;
 	@CreationTimestamp
